@@ -1,0 +1,745 @@
+/* Basic Reset & Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Example font */
+    background-color: #1a1a1a; /* Dark background for the left side */
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scroll from orange shape */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Reusable Button Style */
+.btn {
+    display: inline-block;
+    background-color: #ff8c00; /* Orange color for button */
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e67e00;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #ff8c00;
+    color: #ff8c00;
+}
+
+.btn-secondary:hover {
+    background-color: #ff8c00;
+    color: #fff;
+}
+
+/* Header/Navigation */
+.header {
+    background: linear-gradient(to right, rgba(0,0,0,0.8), transparent); /* Subtle gradient for header */
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif; /* Example font for logo */
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin-right: 35px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative; /* For underline effect */
+}
+
+.navbar .nav-links a:hover {
+    color: #ff8c00; /* Example hover color */
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff8c00;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar .nav-links a:hover::after {
+    width: 100%;
+}
+
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icons i {
+    font-size: 24px;
+    margin-left: 25px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-icons i:hover {
+    color: #ff8c00;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop, shown on mobile */
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding-top: 80px; /* Adjust for fixed header */
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #1a1a1a 60%, transparent 40%); /* Gradient for visual break */
+}
+
+.hero-content {
+    flex: 1;
+    padding-left: 10%; /* Adjust as per design */
+    z-index: 2; /* Ensure content is above orange shape */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Subtle shadow for text readability */
+}
+
+.hero-content .tagline {
+    font-size: 28px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.hero-content .main-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 90px; /* Adjust size */
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 25px;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.hero-content .sub-tagline {
+    font-size: 22px;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image {
+    max-width: 90%; /* Adjust size */
+    height: auto;
+    object-fit: contain;
+    border-radius: 90%; /* If the food platter is on a circular plate, might need this */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7); /* More prominent shadow */
+    transition: transform 0.5s ease-in-out;
+}
+
+.hero-image:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Small food images around the main image */
+.small-food-img {
+    position: absolute;
+    width: 100px; /* Example size */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.img-1 {
+    top: 15%;
+    left: 10%;
+    transform: rotate(15deg);
+}
+
+.img-2 {
+    bottom: 10%;
+    right: 5%;
+    transform: rotate(-10deg);
+}
+
+/* Orange abstract shape */
+.orange-shape {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%; /* Adjust size */
+    height: 100%;
+    background-color: #ffa500; /* Bright orange */
+    clip-path: ellipse(80% 60% at 100% 50%); /* Example for the abstract shape */
+    z-index: 1;
+}
+
+/* Common Section Styling */
+.common-section {
+    padding: 100px 0;
+    text-align: center;
+    background-color: #222; /* Slightly lighter background for content sections */
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    margin-bottom: 60px;
+    color: #ff8c00; /* Orange title */
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background-color: #fff;
+    bottom: -15px;
+    left: 20%;
+    border-radius: 5px;
+}
+
+/* About Section */
+.about-section .container {
+    padding-top: 50px;
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    text-align: left;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    color: #ff8c00;
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Menu Section */
+.menu-intro {
+    font-size: 20px;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.menu-categories {
+    margin-bottom: 50px;
+}
+
+.menu-category-btn {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #555;
+    padding: 12px 25px;
+    margin: 0 10px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.menu-category-btn:hover,
+.menu-category-btn.active {
+    background-color: #ff8c00;
+    border-color: #ff8c00;
+}
+
+.menu-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-item img {
+  width: 160px;       /* Reduce width */
+  height: 120px;      /* Optional: control height */
+  object-fit: cover;  /* Ensures image doesn't stretch */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.menu-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #ff8c00;
+    margin: 15px 15px 5px;
+}
+
+.menu-item p {
+    font-size: 16px;
+    color: #ccc;
+    margin: 0 15px 10px;
+    line-height: 1.5;
+}
+
+.menu-item .price {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0 15px 15px;
+}
+
+/* ======= GALLERY SECTION ======= */
+/* Container and general layout */
+.gallery-section {
+  padding: 60px 20px;
+  background-color: 0 2px 8px rgba(0,0,0,0.1);
+  color: #4b3a1b;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.gallery-description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.15rem;
+  color: #decbb7;
+  line-height: 1.6;
+}
+
+/* Category Titles */
+.gallery-category-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin: 40px 0 20px;
+  color: #a35c00; /* warm brown */
+  border-bottom: 2px solid #a35c00;
+  padding-bottom: 6px;
+}
+
+/* Grid container for images */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+/* Subtle backgrounds for specific categories */
+.ambiance-grid {
+  background-color: #fff3e0;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.kitchen-grid {
+  background-color: #fff8f0;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* Individual gallery item */
+.gallery-item {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(163, 92, 0, 0.2);
+  overflow: hidden;
+  max-width: 300px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(163, 92, 0, 0.4);
+}
+
+/* Images inside gallery items */
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 3px solid #a35c00;
+}
+
+/* Caption below images */
+.gallery-item figcaption {
+  padding: 12px 15px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #6a533a;
+  background-color: #fff9f2;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .gallery-item img {
+    height: 150px;
+  }
+
+  .gallery-category-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.contact-info h3, .contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #ff8c00;
+    margin-bottom: 25px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info p i {
+    margin-right: 15px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links a {
+    display: inline-block;
+    color: #fff;
+    font-size: 28px;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff8c00;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff8c00;
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-form .btn {
+    width: auto; /* Override btn default for form */
+}
+
+.map-container {
+    margin-top: 50px;
+    border-top: 5px solid #ff8c00;
+    padding-top: 20px;
+}
+
+.map-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Footer */
+.footer {
+    background-color: #111;
+    color: #ccc;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 16px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .navbar .nav-links {
+        display: none; /* Hide nav links on smaller screens */
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 80px; /* Below header */
+        left: 0;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .navbar .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .navbar .nav-links li {
+        margin: 15px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger icon */
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+    }
+
+    .hero-content {
+        padding-left: 0;
+        margin-bottom: 40px;
+    }
+
+    .hero-content .main-heading {
+        font-size: 60px;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        padding-bottom: 50px; /* Space from bottom shape */
+    }
+
+    .small-food-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .img-1 {
+        top: 20%;
+        left: 5%;
+    }
+
+    .img-2 {
+        bottom: 5%;
+        right: 5%;
+    }
+
+    .orange-shape {
+        width: 100%;
+        height: 50%;
+        clip-path: ellipse(100% 50% at 50% 100%); /* Adjust shape for mobile */
+        top: auto;
+        bottom: 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 28px;
+    }
+
+    .hero-content .main-heading {
+        font-size: 50px;
+    }
+
+    .hero-content .tagline,
+    .hero-content .sub-tagline {
+        font-size: 18px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 35px;
+    }
+
+    .about-text h3 {
+        font-size: 28px;
+    }
+
+    .menu-item img {
+        height: 180px;
+    }
+
+    .menu-item h3 {
+        font-size: 22px;
+    }
+
+    .menu-category-btn {
+        margin: 5px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header .container {
+        padding: 0 15px;
+    }
+    .logo {
+        font-size: 24px;
+    }
+
+    .hero-content .main-heading {
+        font-size: 38px;
+    }
+
+    .hero-content .tagline {
+        font-size: 20px;
+    }
+
+    .hero-content .sub-tagline {
+        font-size: 16px;
+    }
+
+    .nav-icons i {
+        margin-left: 15px;
+    }
+
+    .section-title {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .menu-items-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info p, .contact-form label, .form-group input, .form-group textarea {
+        font-size: 16px;
+    }
+}
